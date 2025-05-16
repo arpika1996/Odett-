@@ -1,0 +1,42 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Érzéki Napló API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/naplo/bejegyzes": {
+      "post": {
+        "summary": "Új érzéki bejegyzés mentése",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "datum": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "hangulat": {
+                    "type": "string"
+                  },
+                  "tartalom": {
+                    "type": "string"
+                  }
+                },
+                "required": ["datum", "hangulat", "tartalom"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sikeresen mentve"
+          }
+        }
+      }
+    }
+  }
+}
